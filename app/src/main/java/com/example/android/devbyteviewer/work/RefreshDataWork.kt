@@ -19,7 +19,6 @@ package com.example.android.devbyteviewer.work
 
 import android.content.Context
 import androidx.work.CoroutineWorker
-import androidx.work.ListenableWorker
 import androidx.work.WorkerParameters
 import com.example.android.devbyteviewer.database.getDatabase
 import com.example.android.devbyteviewer.repository.VideosRepository
@@ -36,6 +35,10 @@ class RefreshDataWorker(appContext: Context, params: WorkerParameters) : Corouti
         } catch (e: HttpException) {
             Result.retry()
         }
+    }
+
+    companion object {
+        const val WORK_NAME = "RefreshDataWorker"
     }
 
 }
